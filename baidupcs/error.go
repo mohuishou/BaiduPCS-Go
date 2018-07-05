@@ -42,8 +42,8 @@ type ErrInfo struct {
 	operation string // 正在进行的操作
 	errType   ErrType
 	err       error
-	ErrCode   int    `json:"error_code"` // 错误代码
-	ErrMsg    string `json:"error_msg"`  // 错误消息
+	ErrCode   int    `json:"api_error"` // 错误代码
+	ErrMsg    string `json:"error_msg"` // 错误消息
 }
 
 // NewErrorInfo 提供operation操作名称, 返回 *ErrInfo

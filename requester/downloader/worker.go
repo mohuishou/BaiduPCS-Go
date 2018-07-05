@@ -4,15 +4,16 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/iikira/BaiduPCS-Go/pcsverbose"
-	"github.com/iikira/BaiduPCS-Go/requester"
-	"github.com/iikira/BaiduPCS-Go/requester/downloader/cachepool"
-	"github.com/iikira/BaiduPCS-Go/requester/rio/speeds"
 	"io"
 	"net/http"
 	"sync"
 	"sync/atomic"
 	"time"
+
+	"github.com/iikira/BaiduPCS-Go/pcsverbose"
+	"github.com/iikira/BaiduPCS-Go/requester"
+	"github.com/iikira/BaiduPCS-Go/requester/downloader/cachepool"
+	"github.com/iikira/BaiduPCS-Go/requester/rio/speeds"
 )
 
 //Worker 工作单元
@@ -300,7 +301,7 @@ func (wer *Worker) Execute() {
 		return
 	default:
 		wer.status.statusCode = StatusCodeNetError
-		wer.err = fmt.Errorf("unexpected http status code, %d, %s", resp.StatusCode, resp.Status)
+		wer.err = fmt.Errorf("unexpected http status api_error, %d, %s", resp.StatusCode, resp.Status)
 		return
 	}
 
